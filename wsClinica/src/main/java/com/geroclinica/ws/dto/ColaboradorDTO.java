@@ -42,7 +42,6 @@ public class ColaboradorDTO implements Serializable{
 		this.situacao = colaborador.getSituacao();
 		this.endereco = new EnderecoDTO(pessoa.getEndereco());
 		this.especialidade = new EspecialidadeDTO(colaborador.getEspecialidade());
-
 	}
 
 }

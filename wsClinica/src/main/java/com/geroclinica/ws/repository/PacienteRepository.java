@@ -12,6 +12,6 @@ import javax.transaction.Transactional;
 @Transactional
 public interface PacienteRepository extends CrudRepository<Paciente, Long>{
 
-    @Query("SELECT p FROM Paciente p WHERE p.idPessoa = ?1")
+    @Query("SELECT p FROM Paciente p WHERE p.pessoa.id = ?1")
     Paciente findByIdPessoa(long id);
 }

@@ -56,4 +56,6 @@ public class Pessoa implements Serializable {
 	@OneToOne(mappedBy = "pessoa", cascade = CascadeType.ALL)
 	private Endereco endereco;
 
+	@OneToMany(mappedBy = "pessoa", cascade = CascadeType.ALL)
+	private List<Paciente> paciente;
 }

@@ -17,4 +17,7 @@ public interface VinculoColaboradorPacienteRepository extends CrudRepository<Vin
     @Query(" SELECT v FROM VinculoColaboradorPaciente v WHERE v.paciente = ?1 ")
     List<VinculoColaboradorPaciente> findByIdPciente(Paciente paciente);
 
+    @Query(" SELECT v FROM VinculoColaboradorPaciente v WHERE v.colaborador.id = ?1 ")
+    Iterable<VinculoColaboradorPaciente> findByIdColaborador(Long id);
+
 }

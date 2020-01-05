@@ -39,7 +39,7 @@ public class PacienteWS {
         List<PacienteDTO> allPacientes = new ArrayList<>();
 
        for (Paciente p: pacientes) {
-           Optional<Pessoa> pessoa = pessoaRepository.findById(p.getIdPessoa());
+           Optional<Pessoa> pessoa = pessoaRepository.findById(p.getPessoa().getId());
            PacienteDTO pacienteDTO = new PacienteDTO(p, pessoa.get());
            allPacientes.add(pacienteDTO);
        }
@@ -49,7 +49,7 @@ public class PacienteWS {
     @GetMapping(value = "/id")
     public ResponseEntity<PacienteDTO> findById(@RequestParam(value = "id") Long id){
         Optional<Paciente> paciente = pacienteRepository.findById(id);
-        Optional<Pessoa> pessoa = pessoaRepository.findById(paciente.get().getIdPessoa());
+        Optional<Pessoa> pessoa = pessoaRepository.findById(paciente.get().getPessoa().getId());
         PacienteDTO pacienteDTO = new PacienteDTO(paciente.get(), pessoa.get());
         return ResponseEntity.ok(pacienteDTO);
     }

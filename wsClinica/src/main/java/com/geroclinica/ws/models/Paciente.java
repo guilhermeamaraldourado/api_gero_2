@@ -45,7 +45,8 @@ public class Paciente implements Serializable{
 	@Enumerated(EnumType.STRING)
 	private Status status;
 
-	@Column(name = "PESSOA")
-	private Long idPessoa;
+	@ManyToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "pessoa", referencedColumnName = "id")
+	private Pessoa pessoa;
 
 }
