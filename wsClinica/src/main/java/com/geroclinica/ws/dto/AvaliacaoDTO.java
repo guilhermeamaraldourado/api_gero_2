@@ -7,11 +7,13 @@ import lombok.Setter;
 import javax.persistence.*;
 import java.io.Serializable;
 
+@Getter
+@Setter
 public class AvaliacaoDTO {
 
 	private Long id;
 
-	private Paciente paciente;
+	private PacienteDTO paciente;
 
 //	private Long idColaborador;
 
@@ -22,5 +24,14 @@ public class AvaliacaoDTO {
 	private String dscPlanoTratamento;
 
 	private String dscObservacao;
+
+	public AvaliacaoDTO (Long id, Paciente paciente, String frequencia, String dscDoenca, String dscPlanoTratamento, String dscObservacao){
+		this.id = id;
+		this.paciente =  new PacienteDTO(paciente, paciente.getPessoa());
+		this.frequencia = frequencia;
+		this.dscDoenca = dscDoenca;
+		this.dscPlanoTratamento = dscPlanoTratamento;
+		this.dscObservacao = dscObservacao;
+	}
 
 }
